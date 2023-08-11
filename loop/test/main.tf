@@ -52,6 +52,22 @@ variable "security_groups" {
         Environment = "Development"
       }
     },
+    redis_sg = {
+      name        = "redis-security-group"
+      description = "redis security group"
+      tags = {
+        Name        = "redisSG"
+        Environment = "Development"
+      }
+    },
+    user_sg = {
+      name        = "user-security-group"
+      description = "user security group"
+      tags = {
+        Name        = "userSG"
+        Environment = "Development"
+      }
+    },
   }
 }
 
