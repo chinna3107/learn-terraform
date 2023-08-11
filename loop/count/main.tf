@@ -12,8 +12,6 @@ resource "aws_instance" "instance" {
 
   tags = {
     Name = element(var.component, count.index)
-
     //Name = var.component[count.index]
    }
-
 }
