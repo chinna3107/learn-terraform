@@ -6,9 +6,9 @@ variable "components" {
 
   count = length(var.components)
 
-  ami           = "ami-03265a0778a880afb"
+  ami           = "ami-0dd64e87afd183e02"
   instance_type = "t3.small"
-  vpc_security_group_ids = [ "sg-0dee954b08055e577" ]
+  vpc_security_group_ids = [ "sg-0718583b9b8a75cc2" ]
 
   tags = {
     //Name = var.components[count.index]
