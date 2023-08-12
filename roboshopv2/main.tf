@@ -23,7 +23,7 @@ variable "component" {
     cart = { name = "cart-dev" }
     mysql = { name = "mysql-dev" }
     shipping = { name = "shipping-dev" }
-    payment = { name = "payment=dev" }
+    payment = { name = "payment-dev" }
     rabbitmq = { name = "payment-dev" }
   }
 
