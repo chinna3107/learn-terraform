@@ -31,7 +31,7 @@ variable "component" {
 resource "aws_instance" "instance" {
   for_each = var.component
   ami    = var.ami
-  instance_type = var.Security_group
+  instance_type = var.instance_type
   vpc_security_group_ids = var.Security_group
 
   tags = {
