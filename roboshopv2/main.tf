@@ -15,16 +15,16 @@ variable "zone_id" {
 
 variable "component" {
   default = {
-    frontend = {}
-    catalogue = {}
-    mongodb = {}
-    user = {}
-    redis = {}
-    cart = {}
-    mysql = {}
-    shipping = {}
-    payment = {}
-    rabbitmq = {}
+    frontend = { name = "frontend" }
+    catalogue = { name = "catalogue" }
+    mongodb = { name = "mongodb" }
+    user = { name = "user" }
+    redis = { name = "redis" }
+    cart = { name = "cart " }
+    mysql = { name = "mysql" }
+    shipping = { name = "shipping" }
+    payment = { name = "payment" }
+    rabbitmq = { name = "payment" }
   }
 
 }
