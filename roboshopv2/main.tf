@@ -13,20 +13,43 @@ variable "zone_id" {
   default = "Z02130323PCBS9CDUOI7M"
 }
 
-resource "aws_instance" "frontend" {
-  ami           = var.ami
-  instance_type = var.instance_type
+variable "component" {
+  default = {
+    frontend = {}
+    catalogue = {}
+    mongodb = {}
+    user = {}
+    redis = {}
+    cart = {}
+    mysql = {}
+    shipping = {}
+    payment = {}
+    rabbitmq = {}
+  }
+
+}
+resource "aws_instance" "instance" {
+  for_each = var.component
+  ami    = var.ami
+  instance_type = var.Security_group
   vpc_security_group_ids = var.Security_group
 
   tags = {
-    Name = "frontend"
+
+    name = lookup(var.component, each.key, null)
   }
 }
 
-resource "aws_route53_record" "frontend" {
-  zone_id = var.zone_id
-  name    = "frontend-dev.devops-tools.online"
-  type    = "A"
-  ttl     = 30
-  records = [aws_instance.frontend.private_ip]
+#resource "aws_route53_record" "record" {
+# for_each = var.component
+#  zone_id = var.zone_id
+#  name    = "frontend-dev.devops-tools.online"
+#  type    = "A"
+#  ttl     = 30
+#  records = [lookup(aws_instance.each.key[""])
+#    }
+
+output "instance" {
+  value = aws_instance.instance
 }
+
