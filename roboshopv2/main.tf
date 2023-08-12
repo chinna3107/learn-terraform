@@ -15,16 +15,16 @@ variable "zone_id" {
 
 variable "component" {
   default = {
-    frontend = { name = "frontend" }
-    catalogue = { name = "catalogue" }
-    mongodb = { name = "mongodb" }
-    user = { name = "user" }
-    redis = { name = "redis" }
-    cart = { name = "cart " }
-    mysql = { name = "mysql" }
-    shipping = { name = "shipping" }
-    payment = { name = "payment" }
-    rabbitmq = { name = "payment" }
+    frontend = { name = "frontend-dev" }
+    catalogue = { name = "catalogue-dev" }
+    mongodb = { name = "mongodb-dev" }
+    user = { name = "user-dev" }
+    redis = { name = "redis-dev" }
+    cart = { name = "cart-dev" }
+    mysql = { name = "mysql-dev" }
+    shipping = { name = "shipping-dev" }
+    payment = { name = "payment=dev" }
+    rabbitmq = { name = "payment-dev" }
   }
 
 }
@@ -42,10 +42,10 @@ resource "aws_instance" "instance" {
 #resource "aws_route53_record" "record" {
 # for_each = var.component
 #  zone_id = var.zone_id
-#  name    = "frontend-dev.devops-tools.online"
+#  name    = "${lookup(each.value, "name", null)}.devops-tools.online"
 #  type    = "A"
 #  ttl     = 30
-#  records = [lookup(aws_instance.each.key[""])
+#  records = [lookup(lookup(aws.instance.instance, each.key, null), "private_ip", null) ]
 #    }
 
 output "instance" {
