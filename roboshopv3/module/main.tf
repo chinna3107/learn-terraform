@@ -31,6 +31,3 @@ ansible-playbook -i ${var.name}.devops-tools.online", main.yml -e ansible_user=c
 EOF
   }
 }
-
-
-}
