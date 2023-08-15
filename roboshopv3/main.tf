@@ -1,4 +1,5 @@
-resource "aws_instance" "instance" {
+module "component" {
+
   for_each = var.component
 
   source           = " ./module"
@@ -6,4 +7,5 @@ resource "aws_instance" "instance" {
   security_group   = var.Security_group
   name             = each.value["name"]
   instance_type    = each.value["instance_type"]
+
 }
