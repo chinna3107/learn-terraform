@@ -3,3 +3,7 @@ data "aws_ami" "ami" {
   name_regex       = "backup"
   owners           = ["471757984210"]
 }
+
+output "ami" {
+   value = data.aws_ami.ami
+}
