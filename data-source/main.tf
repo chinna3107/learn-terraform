@@ -1,5 +1,5 @@
 data "aws_ami_ids" "ami" {
-  most_recent      = true
+  most_recent      = false
   name_regex       = "backup"
   owners           = ["471757984210"]
 }
