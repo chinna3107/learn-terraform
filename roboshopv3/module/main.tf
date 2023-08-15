@@ -21,9 +21,9 @@ resource "null_resource"  "ansible" {
   aws_route53_record.record
   ]
 
-  provisioner "local-exec" {
+  provisioner "local-exec"  {
     command = <<EOF
-cd /root/roboshop-ansible1
+cd /root/roboshop-ansible
 git pull
 sleep 30
 ansible-playbook -i ${var.name}-dev.devops-tools.online, main.yml -e ansible_user=centos -e ansible_password=DevOps321
