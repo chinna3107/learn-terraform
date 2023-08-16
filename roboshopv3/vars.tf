@@ -7,8 +7,8 @@ variable "zone_id" {
 
 variable "component" {
   default = {
-    frontend-dev = {
-      name = "frontend-dev"
+    frontend = {
+      name = "frontend"
       instance_type = "t3.micro"
     }
   }
